@@ -89,10 +89,11 @@ alter table item_pedido
 	REFERENCES pedido(id)
 	ON DELETE cascade;
 
-alter table item_pedido;
-alter table entregador;
-alter table login;
-alter table cliente;
-alter table empresa;
-alter table marmita;
+drop table item_pedido;
+drop table entregador;
+drop table login;
+drop table cliente;
+drop table empresa;
+drop table marmita;
+drop table pedido;
 	
