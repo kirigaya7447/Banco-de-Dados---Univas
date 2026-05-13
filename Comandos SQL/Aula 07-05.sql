@@ -94,4 +94,4 @@ insert into relacao_3(cod_ordem, cod_servico)
 
 select nome,telefone from cliente;
 
-update finalizacao set data_entrega= '1899-12-31';
+update finalizacao set data_entrega = '1899-12-31';
