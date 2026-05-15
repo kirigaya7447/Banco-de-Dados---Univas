@@ -17,7 +17,7 @@ update finalizacao set data = "1899-12-05" where cod_final = 3;
 select * from cliente order by cod_cliente ;
 select * from cliente order by cod_cliente  desc;
 
-select empresa. telefone from cliente where;
+select empresa.telefone from cliente where;
 
 
-select f.cod_final as "Data Entrada", f.data_entrega as "Data Entrega", f.data_entrega as "data de entrega" from finalizacao as "";
+select f.cod_final as "Data Entrada", f.data_entrega as "Data Entrega" from finalizacao as "f";
