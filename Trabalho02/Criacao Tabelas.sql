@@ -1,3 +1,5 @@
+create schema portal_estudantil;
+
 create table usuario(
 	codUsuario int,
 	login varchar(255),
