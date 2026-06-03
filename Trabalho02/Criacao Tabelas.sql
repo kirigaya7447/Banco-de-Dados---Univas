@@ -19,43 +19,85 @@ create table aluno(
 );
 
 create table curso(
-	codCurso int comment "",
-	nome varchar(255) comment "",
-	codAluno int comment "",
-	codProfessor int comment "",
-	codMateria int comment "",
+	codCurso int comment "identificador do curso",
+	nome varchar(255) comment "nome do curso",
+	codAluno int comment "identificador do aluno",
+	codProfessor int comment "identificador do professor",
+	codMateria int comment "identificador da Materia",
 	primary key(codCurso)
 );
 
 create table professor(
-	codProfessor int comment "",
-	dataNasc date comment "",
-	matriculaProfessor int comment "",
-	cpf varchar(20) comment "",
-	nome varchar(255) comment "",
-	codUsuario int comment "",
+	codProfessor int comment "identificador do professor",
+	dataNasc date comment "data de nascimento do professor",
+	matriculaProfessor int comment "matricula do professor",
+	cpf varchar(20) comment "cpf do professor",
+	nome varchar(255) comment "nome do professor",
+	codUsuario int comment "identificador do usuario",
 	primary key(codProfessor)
 );
 
 create table materia(
-	codMateria int comment "",
-	horario time comment "",
-	nome varchar(255) comment "",
-	sala varchar(255) comment "",
-	codProfessor int comment "",
+	codMateria int comment "identificador da materia",
+	horario time comment "horario da aula da materia",
+	nome varchar(255) comment "nome da materia",
+	sala varchar(255) comment "sala da materia",
+	codProfessor int comment "identificador do professor",
 	primary key(codMateria)
 );
 
 create table professorCurso(
-	codProfessorCurso int comment "",
-	codProfessor int comment "",
-	codCurso int comment "", 
+	codProfessorCurso int comment "identificador do ProfessorCurso",
+	codProfessor int comment "identificador do professor",
+	codCurso int comment "identificador do curso", 
 	primary key(codProfessorCurso)
 );
 
-create table CursoMateria(
-	codCursoMateria int comment "",
-	codMateria int comment "",
-	codCurso int comment "",
+create table cursoMateria(
+	codCursoMateria int comment "identificador do CursoMateria",
+	codMateria int comment "identificador da materia",
+	codCurso int comment "identificador do curso",
 	primary key(codCursoMateria)
 );
+
+ALTER TABLE aluno
+	ADD CONSTRAINT FOREIGN key(codUsuario)
+	REFERENCES usuario(codUsuario)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
+
+ALTER TABLE professor
+	ADD CONSTRAINT FOREIGN key(codUsuario)
+	REFERENCES usuario(codUsuario)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
+
+ALTER TABLE professorCurso
+	ADD CONSTRAINT FOREIGN key(codProfessor)
+	REFERENCES professor(codProfessor)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
+
+ALTER TABLE professorCurso
+	ADD CONSTRAINT FOREIGN key(codCurso)
+	REFERENCES curso(codCurso)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
+
+ALTER TABLE cursoMateria
+	ADD CONSTRAINT FOREIGN key(codMateria)
+	REFERENCES materia(codMateria)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
+
+ALTER TABLE cursoMateria
+	ADD CONSTRAINT FOREIGN key(codCurso)
+	REFERENCES curso(codCurso)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
+
+ALTER TABLE curso
+	ADD CONSTRAINT FOREIGN key(codAluno)
+	REFERENCES aluno(codAluno)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE;
