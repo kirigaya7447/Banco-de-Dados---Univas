@@ -131,6 +131,8 @@ insert into cursomateria
 	(codCursoMateria,codMateria,codCurso) 
 	values(1, 1, 1);
 
+select usuario.cargo, aluno.nome from usuario inner join aluno on usuario.codUsuario = aluno.codAluno;
+
 update aluno set nome = "Otávio" where codAluno = 1;
 
 	
