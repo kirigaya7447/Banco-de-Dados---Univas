@@ -101,3 +101,36 @@ ALTER TABLE curso
 	REFERENCES aluno(codAluno)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE;
+
+insert into usuario
+	(codUsuario,login,senha,cargo)
+	VALUES(1, "Otavio", 1234, "Aluno"),
+	(2, "Gustavo", 1234, "Professor");
+
+insert into aluno
+	(codAluno,matriculaAluno,cpf,dataNasc,nome,codUsuario)
+	values(1, 1, "111111111", '2005-04-04', "Otavio", 1);
+
+insert into professor
+	(codProfessor,dataNasc,matriculaProfessor,cpf,nome,codUsuario) 
+	values(1, '2000-01-01', 1, "111111111", "Gustavo", 2);
+
+insert into materia
+	(codMateria,horario,nome,sala,codProfessor) 
+	values(1, '20:00:00', "SQL", "Sala 05", 1);
+
+insert into curso
+	(codCurso,nome,codAluno,codProfessor,codMateria) 
+	values(1, "Sistemas", 1, 1, 1);
+
+insert into professorcurso
+	(codProfessorCurso,codProfessor,codCurso) 
+	values(1, 1, 1);
+
+insert into cursomateria
+	(codCursoMateria,codMateria,codCurso) 
+	values(1, 1, 1);
+
+update aluno set nome = "Otávio" where codAluno = 1;
+
+	
