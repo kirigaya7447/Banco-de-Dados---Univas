@@ -70,7 +70,7 @@ group by categoria;
 
 -- QUESTÃO 3
 -- Qual a quantidade média de produtos no estoque pertencentes à categoria limpeza?
-select categoria, avg(qtde) as "Quantidade média" 
+select categoria, avg(qtde) as "Quant idade média" 
 from estoque 
 where categoria = "limpeza";
 
