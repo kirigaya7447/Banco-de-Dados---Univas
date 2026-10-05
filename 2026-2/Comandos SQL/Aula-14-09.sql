@@ -17,7 +17,7 @@ update compra set id_empresa = 2 where id_produto >= 3;
 #SELECTS
 select c.nf, 
 c.id_produto, 
-(select nome from empresa) as empresa
+(select nome from empresa where c.id_empresa = id) as empresa
 from compra as c
 order by 1;
 
